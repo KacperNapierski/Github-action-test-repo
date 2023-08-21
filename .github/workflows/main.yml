@@ -19,3 +19,4 @@ jobs:
           REMOTE_PORT: 22
           SOURCE: "dist/"
           TARGET: ${{ secrets.WORK_DIR }}
+          
