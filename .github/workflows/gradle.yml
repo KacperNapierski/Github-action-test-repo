@@ -32,3 +32,15 @@ jobs:
       uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
       with:
         arguments: build
+
+    - name: ssh deploy
+      uses: easingthemes/ssh-deploy@v2.1.4
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        REMOTE_HOST: ${{ secrets.SSH_HOST }}
+        REMOTE_USER: ${{ secrets.SSH_USER }}
+        REMOTE_PORT: 22
+        SOURCE: "dist/"
+        TARGET: ${{ secrets.WORK_DIR }}
+          
+    
